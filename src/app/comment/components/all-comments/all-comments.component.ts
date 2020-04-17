@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CommentModel} from "../../models/CommentModel";
+import {CommentModel} from "../../../models/CommentModel";
 import {ActivatedRoute} from "@angular/router";
 import {CommentService} from "../../services/CommentServices/comment.service";
 

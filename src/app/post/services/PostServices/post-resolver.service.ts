@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import {PostModel} from "../../models/PostModel";
+import {PostService} from "./post.service";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {PostOfUserService} from "./post-of-user.service";
+import {PostModel} from "../../../models/PostModel";
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostOfUserResolverService implements Resolve<PostModel[]>{
+export class PostResolverService implements Resolve<PostModel[]> {
 
-  constructor(private postOfUserService: PostOfUserService) { }
+  constructor(private postService: PostService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PostModel[]> | Promise<PostModel[]> | PostModel[] {
-    return this.postOfUserService.getPostsOfUserById(route.params.id);
+    return this.postService.getPosts();
   }
 }
