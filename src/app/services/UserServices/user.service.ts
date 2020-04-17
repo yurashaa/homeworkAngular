@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 import {UserModel} from "../../models/UserModel";
 
 @Injectable({
@@ -12,5 +12,9 @@ export class UserService {
 
   getUsers(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>('https://jsonplaceholder.typicode.com/users');
+  }
+
+  getUserById(id) : Observable<UserModel> {
+    return this.http.get<UserModel>(`https://jsonplaceholder.typicode.com/users/${id}`);
   }
 }

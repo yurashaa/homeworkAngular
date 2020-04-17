@@ -1,0 +1,12 @@
+<h2>Users</h2>
+
+<h4>current user</h4>
+<div>
+  {{currentUser | json}}
+</div>
+<hr>
+<router-outlet></router-outlet>
+<hr>
+
+<app-user *ngFor="let user of users" [user]="user" (forwardUserData)="catchUserData($event)"></app-user>
+

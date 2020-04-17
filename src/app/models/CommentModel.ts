@@ -1,5 +1,6 @@
-export interface CommentModel {
+export class CommentModel {
   id: number;
+
   name: string;
   email: string;
 }
