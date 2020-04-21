@@ -12,6 +12,6 @@ export class PostOfUserResolverService implements Resolve<PostModel[]>{
   constructor(private postOfUserService: PostOfUserService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PostModel[]> | Promise<PostModel[]> | PostModel[] {
-    return this.postOfUserService.getPostsOfUserById(route.params.id);
+    return this.postOfUserService.getPostsOfUserById(route.queryParams.idOfUser);
   }
 }

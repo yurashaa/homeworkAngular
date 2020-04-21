@@ -7,9 +7,11 @@ import {PostOfUserResolverService} from "./services/PostsOfUserServices/post-of-
 
 const routes: Routes = [
   {path: '', component: AllPostsComponent, resolve: {allPosts: PostResolverService}, children: [
-      {path: ':id/comments', loadChildren: () => import('../comment/comment.module').then(m => m.CommentModule)}
+      {path: ':id', loadChildren: () => import('../comment/comment.module').then(m => m.CommentModule)}
     ]},
-  {path: ':id/posts', component: AllPostsComponent, resolve: {allPosts: PostOfUserResolverService}}
+  {path: 'posts', component: AllPostsComponent, resolve: {allPosts: PostOfUserResolverService}, children: [
+      {path: ':id', loadChildren: () => import('../comment/comment.module').then(m => m.CommentModule)}
+    ]}
 ];
 
 @NgModule({

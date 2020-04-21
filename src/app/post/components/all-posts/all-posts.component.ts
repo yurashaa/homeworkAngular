@@ -12,6 +12,7 @@ export class AllPostsComponent implements OnInit {
   posts: PostModel[];
 
   constructor(private activatedRoute: ActivatedRoute) {
+    console.log(this.activatedRoute.snapshot.data.allPosts);
     this.posts = this.activatedRoute.snapshot.data.allPosts;
   }
 

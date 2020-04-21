@@ -5,9 +5,11 @@ import {UserResolverService} from "./services/UserServices/user-resolver.service
 
 const routes: Routes = [
   {path: '', component: AllUsersComponent, resolve: {allUsers: UserResolverService}, children: [
-      {path: ':id/posts', loadChildren: () => import('../post/post.module').then(m => m.PostModule)}
+      {path: ':id', loadChildren: () => import('../post/post.module').then(m => m.PostModule)}
     ]},
-  {path: ':id/user', component: AllUsersComponent}
+  {path: 'user', component: AllUsersComponent, children: [
+      {path: ':id', loadChildren: () => import('../post/post.module').then(m => m.PostModule)}
+    ]},
 ];
 
 @NgModule({

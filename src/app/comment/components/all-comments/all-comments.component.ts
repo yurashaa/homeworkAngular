@@ -18,15 +18,7 @@ export class AllCommentsComponent implements OnInit {
     } catch (e) {
       console.log(e)
     }
-
-    this.activatedRoute.queryParams.subscribe(value => {
-      if(!!value.idOfPost) {
-        this.commentService.getCommentsOfPostById(value.idOfPost).subscribe(data => {
-          this.comments = data;
-        });
-      }
-    })
-    }
+  }
 
   ngOnInit(): void {
   }
