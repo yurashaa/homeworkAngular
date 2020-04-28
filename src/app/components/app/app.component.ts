@@ -17,17 +17,17 @@ export class AppComponent {
   users: UserModel[];
 
   constructor(private userService: UserService, private postService: PostService, private commentService: CommentService) {
-    this.userService.getUsers().subscribe(data => {
-      this.users = data;
-      console.log(this.users);
-    });
-
-    this.postService.getPosts().subscribe(data => {
-      this.posts = data;
-    });
-
-    this.commentService.getComments().subscribe(data => {
-      this.comments = data;
-    });
+    // this.userService.getUsers().subscribe(data => {
+    //   this.users = data;
+    //   console.log(this.users);
+    // });
+    //
+    // this.postService.getPosts().subscribe(data => {
+    //   this.posts = data;
+    // });
+    //
+    // this.commentService.getComments().subscribe(data => {
+    //   this.comments = data;
+    // });
   }
 }
